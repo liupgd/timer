@@ -1,0 +1,218 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    color: #333;
+}
+
+/* App Container */
+#app {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 280px;
+    max-width: 95%;
+}
+
+/* Input and Buttons Container */
+#app > div:first-child {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Input Field */
+#minutesInput {
+    width: 40px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    outline: none;
+    margin-right: 10px;
+}
+
+/* Buttons Container - 确保按钮水平排列 */
+#app > div:first-child > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Buttons */
+button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Timer Display */
+#timerDisplay {
+    font-size: 32px;
+    font-weight: bold;
+    color: #003399;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Restart Count */
+#restartCount {
+    font-size: 12px;
+    color: #555;
+    margin: 5px 0;
+    text-align: right;
+}
+
+/* Open Settings Button */
+#openSettings {
+    width: auto;
+    height: auto;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* 取消计时器的脉动动画 */
+#timerDisplay {
+    animation: none;
+}
+
+/* 调整按钮样式以匹配截图 */
+button {
+    background: #007bff;
+    box-shadow: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: none;
+}
+
+#openSettings:hover {
+    background-color: #367C39;
+    transform: none;
+}
+
+/* 调整整体布局以匹配截图 */
+#app > div {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Settings Page */
+#settingsPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#settingsPage > div {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    width: 80%;
+    max-width: 200px;
+}
+
+#settingsPage label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #222;
+}
+
+#settingsPage input,
+#settingsPage select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 0.7em;
+    outline: none;
+}
+
+#settingsPage input:focus,
+#settingsPage select:focus {
+    border-color: #007bff;
+    box-shadow: 0 1px 2px rgba(0, 123, 255, 0.4);
+}
+
+#settingsPage button {
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 2px;
+    font-size: 0.7em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for disabled buttons */
+button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+button:disabled:hover {
+    background-color: #cccccc;
+}
+
+/* 确保按钮文字完全显示 - 针对特定按钮调整宽度 */
+button.start-button, button.reset-button {
+    width: auto;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+/* 移除一些可能导致冲突的样式 */
+@media (max-width: 768px) {
+    #restartCount {
+        font-size: 10px;
+    }
+
+    #timerDisplay {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时软件</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="number" id="minutesInput" placeholder="分钟数" value="0">
+            <button id="startButton">开始</button>
+            <button id="stopButton">停止</button>
+            <span id="restartCount">重新开始次数: 0</span>
+        </div>
+        <div id="timerDisplay">00:00:00</div>
+        <button id="openSettings">设置</button>
+    </div>
+
+    <script src="./src/main.ts" type="module"></script>
+     <script>
+         document.addEventListener('DOMContentLoaded', () => {
+             const { invoke } = window.__TAURI__.tauri;
+             const openSettingsButton = document.getElementById('openSettings');
+
+             openSettingsButton.addEventListener('click', () => {
+                 window.__TAURI__.window.appWindow.emit('open-settings');
+             });
+         });
+     </script>
+ </body>
+</html>
