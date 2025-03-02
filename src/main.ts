@@ -1,4 +1,5 @@
-import { invoke } from '@tauri-apps/api/tauri';
+import { WebviewWindow } from '@tauri-apps/api/webviewwindow';
+
 document.addEventListener('DOMContentLoaded', () => {
     const minutesInput = document.getElementById('minutesInput') as HTMLInputElement;
     const startButton = document.getElementById('startButton') as HTMLButtonElement;
@@ -16,7 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
         endAction: 'alert',
         programPath: ''
     };
+    loadSettings();
 
+    function loadSettings() {
+        const savedSettings = localStorage.getItem('timerSettings');
+        if (savedSettings) {
+            settings = JSON.parse(savedSettings);
+        }
+    }
     function updateDisplay() {
         const hours = Math.floor(timeLeft / 3600);
         const minutes = Math.floor((timeLeft % 3600) / 60);
@@ -111,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
     timerDisplay.addEventListener('click', startTimer);
 
     openSettingsButton.addEventListener('click', () => {
-        
+        const settingsWindow = new WebviewWindow('settings');
+        settingsWindow.emit('open_settings');
+
     });
 });

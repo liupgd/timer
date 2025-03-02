@@ -10,12 +10,20 @@
     "frontendDist": "../dist"
   },
   "app": {
-    "withGlobalTauri": true,
+
     "windows": [
       {
         "title": "timer",
         "width": 300,
         "height": 150
+      },
+      {
+        "title": "Settings",
+        "width": 400,
+        "height": 300,
+        "label": "settings",
+        "url": "src/settings.html",
+        "resizable": false
       }
     ],
     "security": {
